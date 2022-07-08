@@ -2,12 +2,13 @@
         margin: 0;
         padding: 0cm;
         box-sizing: border-box;
+        font-family: sans-serif;
     }
     
     .App {
         width: 100%;
         background-color: #333;
-        height: 100vh;
+        min-height: 100vh;
     }
     
     .conteiner {
@@ -41,15 +42,39 @@
     
     .Body {
         width: 100%;
-        height: 2000px;
-        padding-top: 70px;
+        height: 100%;
         padding: 10px;
+        padding-top: 70px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
     }
     
     .Card {
-        height: 300px;
-        width: 150px;
+        height: auto;
+        width: auto;
         background-color: aqua;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .types {
+        display: flex;
+    }
+    
+    .type {
+        margin: 10px;
+    }
+    
+    button {
+        padding: 15px;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
     }
     
     @media all and (min-width: 1000px) {
