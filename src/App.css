@@ -1,102 +1,137 @@
-    * {
-        margin: 0;
-        padding: 0cm;
-        box-sizing: border-box;
-        font-family: sans-serif;
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: hidden;
+}
+
+.App {
+    background-color: #333;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Search {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.input {
+    margin: 0 30px;
+    padding: 0 15px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.Body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.card-conteiner {
+    max-width: 1000px;
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 0 20px;
+}
+
+.Card {
+    position: relative;
+    background-color: #222;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    border-radius: 10px;
+}
+
+.first-page {
+    text-align: center;
+}
+
+.second-page {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.698);
+    transition: .5s;
+}
+
+.second-page:hover {
+    opacity: 1;
+}
+
+li {
+    margin: 5px 0;
+}
+
+.types {
+    display: flex;
+}
+
+.type {
+    margin: 0 10px;
+}
+
+button {
+    background-color: blue;
+    padding: 10px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: rgb(0, 0, 205);
+}
+
+@media (max-width: 1000px) {
+    .card-conteiner {
+        grid-template-columns: repeat(3, 1fr);
     }
-    
-    .App {
-        width: 100%;
-        background-color: #333;
-        min-height: 100vh;
+}
+
+@media (max-width: 600px) {
+    .card-conteiner {
+        grid-template-columns: repeat(2, 1fr);
     }
-    
-    .conteiner {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+}
+
+@media (max-width: 380px) {
+    .card-conteiner {
+        grid-template-columns: repeat(1, 1fr);
     }
-    
-    .Nav {
-        width: 100%;
-        height: 60px;
-        background-color: #222;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-    }
-    
-    .search {
-        margin: 0 20px;
-        border: none;
-        border-radius: 5px;
-        background-color: lightgrey;
-        padding: 0 10px;
-        font-size: medium;
-    }
-    
-    .search:focus {
-        outline: none;
-    }
-    
-    .Body {
-        width: 100%;
-        height: 100%;
-        padding: 10px;
-        padding-top: 70px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-    }
-    
-    .Card {
-        height: auto;
-        width: auto;
-        background-color: aqua;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .types {
-        display: flex;
-    }
-    
-    .type {
-        margin: 10px;
-    }
-    
-    button {
-        padding: 15px;
-        background-color: blue;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        margin-bottom: 20px;
-    }
-    
-    @media all and (min-width: 1000px) {
-        .search {
-            height: 30px;
-            width: 900px;
-        }
-        .Body {
-            width: 1000px;
-        }
-    }
-    
-    @media all and (max-width: 1000px) {
-        .search {
-            height: 30px;
-            width: 600px;
-        }
-    }
-    
-    @media all and (max-width: 600px) {
-        .search {
-            height: 30px;
-            width: 300px;
-        }
-    }
+}
