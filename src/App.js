@@ -6,29 +6,35 @@ import React,{useState,useEffect} from 'react';
 
 
 function App() {
-    const [url,setUrl]=useState(`https://pokeapi.co/api/v2/pokemon`);
+    const [search, setSearch] = useState("");
+    const [url,setUrl]=useState("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0");
     const [pokemon,setPokemon]= useState();
     const [isLoading,setIsLoading]=useState(true);
     const [previous,setPrevious]= useState();
     const [next,setNext]= useState();
 
+    const searchUrl="https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
+    const firstUrl="https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
+
+
     const data = async ()=>{
+        search === "" ? setUrl(firstUrl):setUrl(searchUrl)
         const fetchingData = await fetch(url);
         const response = await fetchingData.json();
-        setPokemon(response.results)
-        setNext(response.next)
-        setPrevious(response.previous)
+        const pokemonFilter = await response.results.filter(e=>{
+            return e.name.includes(search);
+        })
+        setPokemon(search !== "" ?pokemonFilter:response.results);
+        response.next && setNext(search === ""&& response.next)
+        response.previous && setPrevious(search === ""&& response.previous)
         setIsLoading(false)
-      
     }
     useEffect(()=>{
-        data();
-
-        
-    },[url])
+        data();   
+    },[url,search])
   return (
       <div className='App'>
-         <Search />
+         <Search search={search} setSearch={setSearch} />
          <Body next={next} prev={previous} setUrl={setUrl} pokemon={pokemon} isLoading={isLoading} />
       </div>
   )

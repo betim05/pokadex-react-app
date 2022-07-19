@@ -9,7 +9,12 @@ const Card = ({pokeName,url}) => {
     const data = async ()=>{
         const fetchingData = await fetch(url);
         const res = await fetchingData.json();
-        const img = await res.sprites.front_default;
+        let img;
+        try {
+            img = await res.sprites.front_default;
+        } catch {
+            img = await res.sprites.front_shiny;
+        }
         const type = await res.types;
         const stat = await res.stats;
         setStats(stat);
@@ -24,7 +29,7 @@ const Card = ({pokeName,url}) => {
         <div className='Card'>
             <div className='first-page'>
                 <h3>{pokeName}</h3>
-                <img src={`${img}`} alt="pokemon" />
+                {isLoading ?(<p>is loading</p>): (<img src={`${img}`} alt="pokemon image not found" />)}
 
                 <div className='types'>Type: 
                     {

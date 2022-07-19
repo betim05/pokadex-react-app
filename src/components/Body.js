@@ -15,7 +15,9 @@ const Body = ({isLoading,pokemon,next,prev,setUrl}) => {
             {
                 prev&&(<button onClick={()=>{setUrl(`${prev}`)}}>previous</button>)
             }
-            <button onClick={()=>{setUrl(`${next}`)}}>next</button>
+             {
+                next&&(<button onClick={()=>{setUrl(`${next}`)}}>next</button>)
+            }
         </div>
     </div>
   )
