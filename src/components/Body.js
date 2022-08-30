@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card'
 
-const Body = ({isLoading,pokemon,next,prev,setUrl}) => {
+const Body = ({isLoading,pokemon,next,prev,setUrl,setOtherPage}) => {
   return (
     <div className='Body'>
         <div className="card-conteiner">
@@ -13,10 +13,23 @@ const Body = ({isLoading,pokemon,next,prev,setUrl}) => {
         </div>
         <div className="button-conteiner">
             {
-                prev&&(<button onClick={()=>{setUrl(`${prev}`)}}>previous</button>)
+                prev&&(<button onClick={()=>{setOtherPage(false);
+                    setUrl(prev);
+                    setTimeout(()=>{
+                        setOtherPage(true)
+                    },1000)}}>previous</button>)
             }
              {
-                next&&(<button onClick={()=>{setUrl(`${next}`)}}>next</button>)
+                next&&(<button onClick={()=>{
+                    setOtherPage(false);
+                    setUrl(next);
+                    setTimeout(()=>{
+                        setOtherPage(true)
+                    },1000)
+                }}>
+                    next
+                </button>)
+                  
             }
         </div>
     </div>
