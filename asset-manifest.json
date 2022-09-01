@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pokadex-react-app/static/css/main.59fbf484.css",
+    "main.js": "/pokadex-react-app/static/js/main.2e1044ea.js",
+    "index.html": "/pokadex-react-app/index.html",
+    "main.59fbf484.css.map": "/pokadex-react-app/static/css/main.59fbf484.css.map",
+    "main.2e1044ea.js.map": "/pokadex-react-app/static/js/main.2e1044ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.59fbf484.css",
+    "static/js/main.2e1044ea.js"
+  ]
+}
